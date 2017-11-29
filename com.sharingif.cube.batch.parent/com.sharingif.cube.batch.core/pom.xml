@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>com.sharingif.cube.batch.parent</artifactId>
+        <groupId>com.sharingif.cube.batch</groupId>
+        <version>4.0.0-RELEASE</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>com.sharingif.cube.batch.core</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>${maven.project.com.sharingif.cube.groupId}</groupId>
+            <artifactId>com.sharingif.cube.communication</artifactId>
+            <version>${maven.project.com.sharingif.cube.release.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${maven.project.com.sharingif.cube.groupId}</groupId>
+            <artifactId>com.sharingif.cube.persistence</artifactId>
+            <version>${maven.project.com.sharingif.cube.release.version}</version>
+        </dependency>
+    </dependencies>
+
+</project>
