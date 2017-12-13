@@ -97,7 +97,6 @@ public class BatchJob implements java.io.Serializable {
 		jobRequest.setPlanExecuteTime(getPlanExecuteTime());
 		jobRequest.setExecuteCount(getExecuteCount());
 		jobRequest.setCreatetime(getCreateTime());
-		jobRequest.setStatus(getStatus());
 
 		return jobRequest;
 	}
