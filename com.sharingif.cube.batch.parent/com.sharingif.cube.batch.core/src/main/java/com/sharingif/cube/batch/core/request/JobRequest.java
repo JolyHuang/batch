@@ -37,10 +37,9 @@ public class JobRequest {
      */
     private Date createtime;
     /**
-     * 状态
+     * 数据id
      */
-    private String status;
-
+    private String dataId;
 
     public String getParentJobId() {
         return parentJobId;
@@ -90,12 +89,12 @@ public class JobRequest {
         this.createtime = createtime;
     }
 
-    public String getStatus() {
-        return status;
+    public String getDataId() {
+        return dataId;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setDataId(String dataId) {
+        this.dataId = dataId;
     }
 
     @Override
@@ -107,7 +106,7 @@ public class JobRequest {
         sb.append(", planExecuteTime=").append(planExecuteTime);
         sb.append(", executeCount=").append(executeCount);
         sb.append(", createtime=").append(createtime);
-        sb.append(", status='").append(status).append('\'');
+        sb.append(", dataId='").append(dataId).append('\'');
         sb.append('}');
         return sb.toString();
     }

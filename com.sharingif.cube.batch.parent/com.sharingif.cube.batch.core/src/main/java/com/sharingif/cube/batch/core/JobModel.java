@@ -20,6 +20,10 @@ public class JobModel {
      * 计划执行时间
      */
     private Date planExecuteTime;
+    /**
+     * 数据id
+     */
+    private String dataId;
 
     public String getLookupPath() {
         return lookupPath;
@@ -37,4 +41,21 @@ public class JobModel {
         this.planExecuteTime = planExecuteTime;
     }
 
+    public String getDataId() {
+        return dataId;
+    }
+
+    public void setDataId(String dataId) {
+        this.dataId = dataId;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("JobModel{");
+        sb.append("lookupPath='").append(lookupPath).append('\'');
+        sb.append(", planExecuteTime=").append(planExecuteTime);
+        sb.append(", dataId='").append(dataId).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }

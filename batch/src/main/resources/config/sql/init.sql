@@ -5,6 +5,7 @@ CREATE TABLE BATCH_JOB (
    PLAN_EXECUTE_TIME      	TIMESTAMP NOT NULL comment '计划执行时间',
    ACTUAL_EXECUTE_TIME      TIMESTAMP comment '实际执行时间',
    EXECUTE_COUNT            int NOT NULL comment '执行次数',
+   DATA_ID                  varchar(100) comment '数据id',
    CREATE_TIME				      TIMESTAMP NOT NULL comment '创建时间',
    STATUS      			        char(1) NOT NULL comment '失败次数',
    ERROR_MESSAGE_CODE       varchar(200) comment '错误码',
