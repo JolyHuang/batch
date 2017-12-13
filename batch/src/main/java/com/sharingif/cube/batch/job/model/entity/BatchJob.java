@@ -29,7 +29,7 @@ public class BatchJob implements java.io.Serializable {
 	 * 处理失败
 	 */
 	public static final String STATUS_FAILED="4";
-	
+
 	//可以直接使用: @Length(max=50,message="用户名长度不能大于50")显示错误消息
 	//columns START
     /**
@@ -62,6 +62,11 @@ public class BatchJob implements java.io.Serializable {
      */	
 	@NotNull 
 	private java.lang.Integer executeCount;
+    /**
+     * 数据id			db_column: DATA_ID 
+     */	
+	@Length(max=100)
+	private java.lang.String dataId;
     /**
      * 创建时间			db_column: CREATE_TIME 
      */	
@@ -137,6 +142,12 @@ public class BatchJob implements java.io.Serializable {
 	public java.lang.Integer getExecuteCount() {
 		return this.executeCount;
 	}
+	public void setDataId(java.lang.String dataId) {
+		this.dataId = dataId;
+	}
+	public java.lang.String getDataId() {
+		return this.dataId;
+	}
 	public void setCreateTime(java.util.Date createTime) {
 		this.createTime = createTime;
 	}
@@ -176,6 +187,7 @@ public class BatchJob implements java.io.Serializable {
 					.append("PlanExecuteTime=").append(getPlanExecuteTime()).append(", ")
 					.append("ActualExecuteTime=").append(getActualExecuteTime()).append(", ")
 					.append("ExecuteCount=").append(getExecuteCount()).append(", ")
+					.append("DataId=").append(getDataId()).append(", ")
 					.append("CreateTime=").append(getCreateTime()).append(", ")
 					.append("Status=").append(getStatus()).append(", ")
 					.append("ErrorMessageCode=").append(getErrorMessageCode()).append(", ")
