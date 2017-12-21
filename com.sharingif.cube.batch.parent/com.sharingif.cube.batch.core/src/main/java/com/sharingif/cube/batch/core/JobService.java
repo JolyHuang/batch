@@ -13,6 +13,11 @@ import com.sharingif.cube.batch.core.request.JobRequest;
 public interface JobService {
 
     /**
+     * 添加job
+     */
+    void add(JobRequest jobRequest);
+
+    /**
      * job处理成功
      * @param jobId : 处理的job id
      */
