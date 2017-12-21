@@ -9,6 +9,8 @@ import com.sharingif.cube.core.exception.handler.ExceptionContent;
 import com.sharingif.cube.core.request.RequestContext;
 import com.sharingif.cube.core.util.StringUtils;
 
+import java.util.List;
+
 /**
  * job返回视图
  *
@@ -21,10 +23,6 @@ public class JobView implements View {
 
     private JobService jobService;
 
-    public JobService getJobService() {
-        return jobService;
-    }
-
     public void setJobService(JobService jobService) {
         this.jobService = jobService;
     }
@@ -33,8 +31,6 @@ public class JobView implements View {
     public void view(RequestContext<?> requestContext, Object returnValue, ExceptionContent exceptionContent) {
 
         JobRequest jobRequest = (JobRequest)requestContext.getRequest();
-        JobModel jobModel = (JobModel)returnValue;
-
         if(exceptionContent != null) {
             ICubeException cubeException =  exceptionContent.getCubeException();
 
@@ -50,14 +46,20 @@ public class JobView implements View {
             jobService.success(jobRequest.getId());
         }
 
-        if(returnValue != null) {
-            if(StringUtils.isTrimEmpty(jobRequest.getId())) {
-                jobService.success(jobModel);
-            } else {
-                jobService.success(jobRequest.getId(), jobModel);
-            }
+        if(returnValue == null) {
+            return;
         }
 
+        if(returnValue instanceof JobModel) {
+            JobModel jobModel = (JobModel)returnValue;
+            jobService.add(jobRequest.getId(), jobModel);
+        }
+
+        if(returnValue instanceof List) {
+            List<JobModel> jobModelList = (List<JobModel>)returnValue;
+            jobService.add(jobRequest.getId(), jobModelList);
+        }
 
     }
+
 }
