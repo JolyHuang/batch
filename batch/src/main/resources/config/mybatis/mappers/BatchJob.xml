@@ -247,7 +247,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			BATCH_JOB
 		WHERE
 			1=1
-			AND STATUS = #{condition.status}
+			AND STATUS = #{status}
 
 		ORDER BY
 			ID
