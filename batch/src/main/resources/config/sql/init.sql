@@ -7,7 +7,7 @@ CREATE TABLE BATCH_JOB (
    EXECUTE_COUNT            int NOT NULL comment '执行次数',
    DATA_ID                  varchar(100) comment '数据id',
    CREATE_TIME				      TIMESTAMP NOT NULL comment '创建时间',
-   STATUS      			        char(1) NOT NULL comment '失败次数',
+   STATUS      			        char(1) NOT NULL comment '状态',
    ERROR_MESSAGE_CODE       varchar(200) comment '错误码',
    ERROR_LOCALIZED_MESSAGE  varchar(500) comment '本地错误消息',
    ERROR_CAUSE              varchar(6000) comment '错误原因',

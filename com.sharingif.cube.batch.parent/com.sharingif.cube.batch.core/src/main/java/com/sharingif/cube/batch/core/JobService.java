@@ -20,6 +20,12 @@ public interface JobService {
 
     /**
      * job处理成功
+     * @param jobModel : 成功处理信息
+     */
+    void success(JobModel jobModel);
+
+    /**
+     * job处理成功
      * @param jobId : 处理的job id
      * @param jobModel : 成功处理信息
      */

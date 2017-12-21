@@ -7,6 +7,7 @@ import com.sharingif.cube.communication.view.View;
 import com.sharingif.cube.core.exception.ICubeException;
 import com.sharingif.cube.core.exception.handler.ExceptionContent;
 import com.sharingif.cube.core.request.RequestContext;
+import com.sharingif.cube.core.util.StringUtils;
 
 /**
  * job返回视图
@@ -36,16 +37,27 @@ public class JobView implements View {
 
         if(exceptionContent != null) {
             ICubeException cubeException =  exceptionContent.getCubeException();
+
+            if(StringUtils.isTrimEmpty(jobRequest.getId())) {
+                return;
+            }
             jobService.failure(jobRequest.getId(), cubeException.getMessage(), cubeException.getLocalizedMessage(), ((Exception)cubeException).getCause().toString());
 
             return;
         }
 
-        if(returnValue == null) {
+        if(!StringUtils.isTrimEmpty(jobRequest.getId())) {
             jobService.success(jobRequest.getId());
         }
 
-        jobService.success(jobRequest.getId(), jobModel);
+        if(returnValue != null) {
+            if(StringUtils.isTrimEmpty(jobRequest.getId())) {
+                jobService.success(jobModel);
+            } else {
+                jobService.success(jobRequest.getId(), jobModel);
+            }
+        }
+
 
     }
 }
