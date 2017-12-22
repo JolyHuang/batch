@@ -42,6 +42,7 @@ public class SimpleDispatcherHandler extends AbstractDispatcherHandler<JobReques
     public void doDispatch(JobRequest request) {
         DefaultTransactionDefinition def = new DefaultTransactionDefinition();
         def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRES_NEW);
+        def.setIsolationLevel(DefaultTransactionDefinition.ISOLATION_REPEATABLE_READ);
         TransactionStatus status = dataSourceTransactionManager.getTransaction(def);
 
         super.doDispatch(request);
